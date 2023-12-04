@@ -3,19 +3,18 @@ const modified = 'stepor'
 
 function findNaughtyStep(original, modified) {
   if(original === modified) return '';
-  
-  const originalChars = original.split('');
-  const modifiedChars = modified.split('');
-  
+
   if(original.length > modified.length){
-    return originalChars.filter((char, i) => char !== modifiedChars[i])[0]
+    const originalChars = original.split('');
+    return originalChars.filter((char, i) => char !== modified[i])[0]
   } else {
-    return modifiedChars.filter((char, i) => char !== originalChars[i])[0]
+    const modifiedChars = modified.split('');
+    return modifiedChars.filter((char, i) => char !== original[i])[0]
   }
 }
 
 findNaughtyStep(original, modified);
 
 // Puntos conseguidos: 250
-// 2684 ops/s (Más alto es mejor)
+// 2950 ops/s (Más alto es mejor)
 // Complejidad cognitiva: 5 (Más bajo es mejor)
